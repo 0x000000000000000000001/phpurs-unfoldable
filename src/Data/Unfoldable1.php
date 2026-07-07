@@ -1,6 +1,6 @@
 <?php
 
-$unfoldr1ArrayImpl = function($isNothing, $fromJust, $fst, $snd, $f, $b) use (&$unfoldr1ArrayImpl) {
+$unfoldr1ArrayImpl = function($isNothing, $fromJust = null, $fst = null, $snd = null, $f = null, $b = null) use (&$unfoldr1ArrayImpl) {
     if (func_num_args() < 6) {
         $__args = func_get_args();
         return function(...$more) use ($__args, &$unfoldr1ArrayImpl) {

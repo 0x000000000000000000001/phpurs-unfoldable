@@ -1,13 +1,12 @@
 <?php
 
-$unfoldrArrayImpl = function(...$args) use (&$unfoldrArrayImpl) {
-    if (count($args) < 6) {
-        return function(...$more) use ($args, &$unfoldrArrayImpl) {
-            return $unfoldrArrayImpl(...array_merge($args, $more));
+$unfoldrArrayImpl = function($isNothing, $fromJust = null, $fst = null, $snd = null, $f = null, $b = null) use (&$unfoldrArrayImpl) {
+    if (func_num_args() < 6) {
+        $__args = func_get_args();
+        return function(...$more) use ($__args, &$unfoldrArrayImpl) {
+            return $unfoldrArrayImpl(...array_merge($__args, $more));
         };
     }
-    
-    list($isNothing, $fromJust, $fst, $snd, $f, $b) = $args;
     
     $result = [];
     $value = $b;
